@@ -63,12 +63,7 @@ io.on('connection', (socket) => {
 
 const port = process.env.PORT || 5000;
 
-// ⭐ Экспорт для Vercel
-export default app;
-
-// Локальный запуск
-if (process.env.NODE_ENV !== 'production') {
-  server.listen(port, () => {
-    console.log(`🚀 Сервер запущен на порту ${port}`);
-  });
-}
+// ✅ Для Render — просто запускаем сервер
+server.listen(port, () => {
+  console.log(`🚀 Сервер запущен на порту ${port}`);
+});
