@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+// 🔁 Замени на URL твоего бэкенда на Render (без /api в конце, мы добавим в baseURL)
+const API_URL = import.meta.env.VITE_API_URL || 'https://board-app-backend.onrender.com/api';
+
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 API.interceptors.request.use((config) => {
@@ -28,6 +34,5 @@ export const likeComment = (commentId) => API.post('/comments/like', { commentId
 export const getLikedAds = () => API.get('/ads/liked');
 export const likeAd = (adId) => API.post('/ads/like', { adId });
 export const getAdLikes = (adId) => API.get(`/ads/${adId}/likes`);
-
 
 export default API;
