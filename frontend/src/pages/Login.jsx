@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../api';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -30,21 +30,17 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50/40 via-white to-rose-50/30 p-4">
-      <Card className="w-full max-w-md shadow-xl border-2 border-amber-200">
-        <CardHeader className="text-center space-y-2">
-          <div className="flex justify-center text-5xl mb-2">🕳️</div>
-          <CardTitle className="text-3xl font-semibold text-stone-800">
-            Учебная нора
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-stone-100 to-stone-50 p-4">
+      <Card className="w-full max-w-md shadow-lg border border-stone-200">
+        <CardHeader className="text-center space-y-1">
+          <CardTitle className="text-2xl font-normal text-stone-800">
+            Вход
           </CardTitle>
-          <CardDescription className="text-stone-500 text-base">
-            Войдите в свой аккаунт
-          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-stone-700 block">
+              <label className="text-sm font-medium text-stone-600 block">
                 Email
               </label>
               <Input
@@ -52,12 +48,12 @@ export default function Login() {
                 placeholder="example@mail.com"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full border-stone-200 focus:border-amber-400 focus:ring-amber-400"
+                className="w-full border-stone-200 focus:border-stone-400 focus:ring-stone-400"
                 required
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-stone-700 block">
+              <label className="text-sm font-medium text-stone-600 block">
                 Пароль
               </label>
               <Input
@@ -65,7 +61,7 @@ export default function Login() {
                 placeholder="••••••••"
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
-                className="w-full border-stone-200 focus:border-amber-400 focus:ring-amber-400"
+                className="w-full border-stone-200 focus:border-stone-400 focus:ring-stone-400"
                 required
               />
             </div>
@@ -76,7 +72,7 @@ export default function Login() {
             )}
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-medium py-2.5 text-base transition-all shadow-md hover:shadow-lg"
+              className="w-full bg-stone-800 hover:bg-stone-700 text-white font-medium py-2.5 text-base transition-all shadow-sm"
               disabled={loading}
             >
               {loading ? 'Вход...' : 'Войти'}
@@ -84,7 +80,7 @@ export default function Login() {
           </form>
           <p className="text-center text-sm text-stone-500 mt-6">
             Нет аккаунта?{' '}
-            <Link to="/register" className="text-amber-600 hover:text-amber-700 font-medium hover:underline transition">
+            <Link to="/register" className="text-stone-600 hover:text-stone-800 font-medium transition">
               Зарегистрироваться
             </Link>
           </p>
